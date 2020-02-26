@@ -49,6 +49,8 @@ chatgui.h
 /home/huynguyen/CodeLab/GithubRepo/CppProjects/CppND-Memory-Management-Chatbot/src/chatgui.h
 wx/wx.h
 -
+memory
+-
 
 /home/huynguyen/CodeLab/GithubRepo/CppProjects/CppND-Memory-Management-Chatbot/src/chatlogic.cpp
 fstream
