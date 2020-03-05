@@ -101,6 +101,8 @@ graphedge.h
 /home/huynguyen/CodeLab/GithubRepo/CppProjects/CppND-Memory-Management-Chatbot/src/graphedge.h
 graphnode.h
 /home/huynguyen/CodeLab/GithubRepo/CppProjects/CppND-Memory-Management-Chatbot/src/graphnode.h
+iostream
+-
 
 /home/huynguyen/CodeLab/GithubRepo/CppProjects/CppND-Memory-Management-Chatbot/src/graphnode.h
 vector
@@ -109,6 +111,8 @@ string
 -
 chatbot.h
 /home/huynguyen/CodeLab/GithubRepo/CppProjects/CppND-Memory-Management-Chatbot/src/chatbot.h
+memory
+-
 
 /usr/local/include/wx-3.1/wx/accel.h
 wx/defs.h

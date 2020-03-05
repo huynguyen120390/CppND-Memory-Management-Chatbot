@@ -46,29 +46,34 @@ ChatBot::~ChatBot()
 ////
 ChatBot::ChatBot(const ChatBot &chatBot){
     std::cout << "ChatBot Copy Constructor" << std::endl;
-    _image = new wxBitmap(*(chatBot._image)); //it is ok to copy image
-    _chatLogic = nullptr; //pointing to the tree should be null first
-    _rootNode = nullptr;
+    _image = chatBot._image; //it is ok to copy image
+    _chatLogic = chatBot._chatLogic; //pointing to the tree should be null first
+    _rootNode = chatBot._rootNode;
 }
 ChatBot &ChatBot::operator=(const ChatBot &chatBot){
     std::cout << "ChatBot Copy Assignment Operator" <<std::endl;
     if(this == &chatBot){
         return *this;
     }
-    if(_image != NULL){
-        delete _image;
-        _image = NULL;
-    }
-    _image = new wxBitmap(*(chatBot._image));
+    //if(_image != NULL){
+    //    delete _image;
+     //   _image = NULL;
+    //}
+    _image = NULL;
     _chatLogic = nullptr;
     _rootNode = nullptr;
+    _image = chatBot._image;
+    _chatLogic = chatBot._chatLogic;
+    _rootNode = chatBot._rootNode;
     return *this;
 }
 ChatBot::ChatBot(ChatBot &&chatBot){
     std::cout <<"ChatBot Move Constructor" <<std::endl;
     _image = chatBot._image;
-    _chatLogic = nullptr;
-    _rootNode = nullptr;
+    _chatLogic = chatBot._chatLogic;
+    _rootNode = chatBot._rootNode;
+    _currentNode = chatBot._currentNode;
+    _chatLogic->SetChatbotHandle(this);
     chatBot._image = NULL;
 }
 ChatBot &ChatBot::operator=(ChatBot &&chatBot){
@@ -76,17 +81,20 @@ ChatBot &ChatBot::operator=(ChatBot &&chatBot){
     if(this == &chatBot){
         return *this;
     }
-    if(_image != NULL){
-        delete _image;
-        _image = NULL;
-    }
+    //if(_image != NULL){
+    //    delete _image;
+    //    _image = NULL;
+    //}
 
     _image = chatBot._image;
     _chatLogic = chatBot._chatLogic;
     _rootNode = chatBot._rootNode;
+    _currentNode = chatBot._currentNode;
+    _chatLogic->SetChatbotHandle(this);
     chatBot._image = NULL;
-    chatBot._chatLogic = nullptr;
-    chatBot._rootNode = nullptr;
+    //chatBot._chatLogic = nullptr;
+    //chatBot._rootNode = nullptr;
+   // chatBot._currentNode = nullptr;
     return *this;
 }
 ////

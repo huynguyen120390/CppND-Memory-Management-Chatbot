@@ -29,7 +29,11 @@ public:
     ~ChatBotPanelDialog();
 
     // getter / setter
-    ChatLogic *GetChatLogicHandle() { return _chatLogic.get(); } //require returning a raw pointer of _chatLogic
+    //ChatLogic *GetChatLogicHandle() { return _chatLogic.get(); } //require returning a raw pointer of _chatLogic
+    auto &GetChatLogicHandle() { return _chatLogic; }
+    void SetChatLogicHandle(std::unique_ptr<ChatLogic> chatLogic) {
+    _chatLogic = std::move(chatLogic);
+  }
 
     // events
     void paintEvent(wxPaintEvent &evt);
